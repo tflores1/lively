@@ -3,25 +3,42 @@
  */
  @import url(https://fonts.googleapis.com/css?family=Cookie);
  @import url(https://fonts.googleapis.com/css?family=Dosis);
- body {
- 	background: white; 	
- 	background-image: url(http://i60.tinypic.com/vrpz5s.jpg); 	
- 	background-repeat: no-repeat; 	
- 	background-position: center, center, fixed; 	
- 	-webkit-background-size: cover;  
- 	-moz-background-size: cover;  
- 	-o-background-size: cover;  
- 	background-size: cover; 	
- 	font-family: 'Dosis', sans-serif;
- 	font-size: 14px;
+ #home {
+	background-image: url(http://i60.tinypic.com/vrpz5s.jpg);
+	background-repeat: no-repeat; 	 	
+	background-position: center, center, fixed; 	 	
+	-webkit-background-size: cover;   	
+	-moz-background-size: cover;   	
+	-o-background-size: cover;   	
+	background-size: cover; 	
  }
- h2 {
+html, body {
+ 	background: pink;
+ 	font-family: 'Dosis', sans-serif;
+ 	margin:0;
+ 	height: 100%;
+ 	padding: 0;
+ }
+.main-dash {
+	margin-left: 20%;
+	min-height: 100%;
+	background: white;
+	float: right:
+}
+.navbar-mine {
+	margin-right: 80%;
+	padding: 0;
+	background: rgb(29,41,57);
+}
+h2, p {
+	padding: 0; 	
+	margin: 0;
+}
+h2 {
  	font-family: 'Cookie', cursive;
  	text-align: center;
  	color: white;
  	font-size: 56px;
- 	padding: 0;
- 	margin: 0;
  }
  .slogan {
  	font-family: 'Dosis', sans-serif;
@@ -52,6 +69,19 @@
  	margin: 5px;	   
  	border-right: none;
  	border-left: none; 	
+ }
+ .nav { 	
+ 	font-family: 'Cookie', cursive;
+ 	font-size: 16px;	
+ 	text-align: center; 	
+ 	color: white; 		 	
+ 	padding: 10px; 	  		    	
+ 	border-top: none; 	
+ 	border-bottom: none; 
+ 	border-radius: 0px;	
+ 	width: 100%;	
+ 	height: 75px;	
+ 	margin: 0;	 
  }
  .small-button {
  	line-height: 5px;
@@ -99,9 +129,17 @@
 	border-top: 3px solid rgb(28,175,154);	
 	border-bottom: 3px solid rgb(21,130,114);
 }
+.primary-nav {	
+	background: rgb(28,175,154);		
+	border-left: 3px solid rgb(28,175,154);		
+	border-right: 6px solid rgb(21,130,114);
+}
 .primary:hover {
 	border-bottom:3px solid rgb(28,175,154); 			
 	border-top: 3px solid rgb(21,130,114);
+}
+.primary-nav:hover {	
+	border-right:3px solid rgba(28,175,154, 0.3); 				
 }
 .secondary {
 	background: rgb(217,220,105);		
@@ -150,11 +188,19 @@
 .text-center {
 	text-align: center;
 }
+.text-left {	text-align: left;}
+.large {
+	font-size: 48px;
+}
+.plain-text {
+	font-family: 'Dosis', sans-serif;
+}
 
 /** modal popup css **/
 
 .overlay {    
-	background-color: rgba(0, 0, 0, 0.6);    
+	background-color: rgba(0, 0, 0, 0.6
+	);    
 	bottom: 0;    
 	cursor: default;    
 	left: 0;    
@@ -177,8 +223,7 @@
 	padding: 15px;    
 	position: fixed;    
 	text-align: justify;    
-	top: 40%;    
-	visibility: visible;    
+	top: 40%;     
 	z-index: 10;    
 	
 	-webkit-transform: translate(-50%, -50%);    
