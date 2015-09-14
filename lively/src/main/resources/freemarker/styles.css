@@ -1,0 +1,233 @@
+/**
+ * The first commented line is your dabblet’s title
+ */
+ @import url(https://fonts.googleapis.com/css?family=Cookie);
+ @import url(https://fonts.googleapis.com/css?family=Dosis);
+ body {
+ 	background: white; 	
+ 	background-image: url(http://i60.tinypic.com/vrpz5s.jpg); 	
+ 	background-repeat: no-repeat; 	
+ 	background-position: center, center, fixed; 	
+ 	-webkit-background-size: cover;  
+ 	-moz-background-size: cover;  
+ 	-o-background-size: cover;  
+ 	background-size: cover; 	
+ 	font-family: 'Dosis', sans-serif;
+ 	font-size: 14px;
+ }
+ h2 {
+ 	font-family: 'Cookie', cursive;
+ 	text-align: center;
+ 	color: white;
+ 	font-size: 56px;
+ 	padding: 0;
+ 	margin: 0;
+ }
+ .slogan {
+ 	font-family: 'Dosis', sans-serif;
+ 	font-size: 14px;
+ 	color: rgb(29,41,57);
+ }
+ .center {
+ 	width: 30%;
+ 	height: 10%;
+ 	text-align: center;
+ 	position: absolute;  
+ 	margin: auto;  
+ 	top: 0;  
+ 	right: 0;  
+ 	bottom: 0;  
+ 	left: 0;
+ }
+.button {
+ 	font-family: 'Dosis', sans-serif;
+ 	font-size: 14px;
+ 	text-align: center;
+ 	color: white;
+ 	border-radius: 5px;
+ 	margin: auto;  	
+ 	width: auto; 	
+ 	height: 100%; 	
+ 	padding: 10px; 	 
+ 	margin: 5px;	   
+ 	border-right: none;
+ 	border-left: none; 	
+ }
+ .small-button {
+ 	line-height: 5px;
+ 	font-size: 12px;
+ }	
+.login, .signup {
+	font-family: 'Cookie', cursive;
+	font-size: 30px;
+ 	background: rgb(62,88,122);   
+ 	border-top:3px solid rgb(62,88,122); 
+ 	border-bottom: 3px solid rgb(39,55,76);    
+ 	width: 300px;
+ }
+.login:hover, .signup:hover {
+	font-family: 'Cookie', cursive;
+	border-top: 3px solid rgb(39,55,76); 
+	border-bottom: 3px solid rgb(62,88,122);
+}
+.submit {
+	background: white;
+	color: #bdc3c7;
+	width: 30%;
+	border-top: 3px solid white;
+	border-bottom: 3px solid;
+}
+.submit:hover {
+	border-top: 3px solid #bdc3c7;
+	border-bottom: 3px;
+}
+.no-hover:hover {
+	border-top: 3px solid white;	
+	border-bottom: 3px solid;
+}
+.error {
+	background: rgb(238, 79, 75);
+	border-top: 3px solid rgb(238, 79, 75);
+	border-bottom: 3px solid rgb(186,62,59);
+}
+.error:hover {
+	border-bottom:3px solid rgb(238, 79, 75); 		
+	border-top: 3px solid rgb(186,62,59);
+}
+.primary {
+	background: rgb(28,175,154);	
+	border-top: 3px solid rgb(28,175,154);	
+	border-bottom: 3px solid rgb(21,130,114);
+}
+.primary:hover {
+	border-bottom:3px solid rgb(28,175,154); 			
+	border-top: 3px solid rgb(21,130,114);
+}
+.secondary {
+	background: rgb(217,220,105);		
+	border-top:3px solid rgb(217,220,105);		
+	border-bottom: 3px solid rgb(116,122,40);
+}
+.secondary:hover  {
+	border-bottom:3px solid rgb(217,220,105); 				
+	border-top: 3px solid rgb(116,122,40);
+}
+.normal {
+	background: rgb(62,88,122);    
+	border-top: 3px solid rgb(62,88,122); 
+	border-bottom: 3px solid rgb(39,55,76); 
+}
+.normal:hover {	
+	border-bottom: 3px solid rgb(62,88,122); 
+	border-top: 3px solid rgb(39,55,76); 
+}
+
+
+
+/** font colors will start here:
+ light: white;
+ primary: teal;
+ secondary: green;
+ error: red;
+ dark: blue;
+ **/
+
+.white {
+	color: white;
+}
+.teal {
+	color: rgb(28,175,154);
+}
+.red {
+	color: rgb(238,79,75);
+}
+.yellow {
+	color: rgb(217, 220, 105);
+}
+.blue {
+	color: rgb(29,41,57);
+}
+.text-center {
+	text-align: center;
+}
+
+/** modal popup css **/
+
+.overlay {    
+	background-color: rgba(0, 0, 0, 0.6);    
+	bottom: 0;    
+	cursor: default;    
+	left: 0;    
+	opacity: 1;    
+	position: fixed;    
+	right: 0;    
+	top: 0;    
+	visibility: visible;    
+	z-index: 1;    
+	-webkit-transition: opacity .5s;    
+	-moz-transition: opacity .5s;    
+	-ms-transition: opacity .5s;    
+	-o-transition: opacity .5s;    
+	transition: opacity .5s;
+}
+.popup {    
+	background-color: rgba(255, 255, 255, 0.9);    
+	display: inline-block;    
+	left: 50%;       
+	padding: 15px;    
+	position: fixed;    
+	text-align: justify;    
+	top: 40%;    
+	visibility: visible;    
+	z-index: 10;    
+	
+	-webkit-transform: translate(-50%, -50%);    
+	-moz-transform: translate(-50%, -50%);    
+	-ms-transform: translate(-50%, -50%);    
+	-o-transform: translate(-50%, -50%);    
+	transform: translate(-50%, -50%);    
+	-webkit-border-radius: 5px;    
+	-moz-border-radius: 5px;    
+	-ms-border-radius: 5px;    
+	-o-border-radius: 5px;    
+	border-radius: 5px;    
+	-webkit-box-shadow: 2 2px 0px 0px rgba(29,41,57, 0.4);    
+	-moz-box-shadow: 2 2px 0px 0px rgba(29,41,57, 0.4);    
+	-ms-box-shadow:2 2px 0px 0px rgba(29,41,57, 0.4);    
+	-o-box-shadow: 2 2px 0px 0px rgba(29,41,57, 0.4);    
+	box-shadow: 2 2px 0px 0px rgba(29,41,57, 0.4);    
+	-webkit-transition: opacity .5s, top .5s;    
+	-moz-transition: opacity .5s, top .5s;    
+	-ms-transition: opacity .5s, top .5s;    
+	-o-transition: opacity .5s, top .5s;    
+	transition: opacity .5s, top .5s;
+}
+.overlay:target+.popup {
+    top: 50%;    
+    opacity: 1;    
+    visibility: visible;
+}
+.popup p, .popup div {    
+	margin-bottom: 10px;
+}
+.popup .label {    
+	display: inline-block;    
+	text-align: left;    
+	width: 120px;
+	font-size: 12px;
+}
+.popup input[type="text"], .popup input[type="password"] {    
+	border: 1px solid;    
+	border-color: #999 #ccc #ccc;    
+	margin: 0;    
+	width: 150px;
+	padding: 2px;    
+	-webkit-border-radius: 2px;    
+	-moz-border-radius: 2px;    
+	-ms-border-radius: 2px;    
+	-o-border-radius: 2px;    
+	border-radius: 2px;
+}
+.popup input[type="text"]:hover, .popup input[type="password"]:hover {    
+	border-color: #555 #888 #888;
+}
