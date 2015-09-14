@@ -1,1 +1,11 @@
 /target/
+.DS_Store
+lively/.DS_Store
+lively/.settings/
+lively/.classpath
+lively/.project
+lively/src/.DS_Store
+lively/src/main/.DS_Store
+lively/src/main/resources/.DS_Store
+lively/src/main/resources/freemarker/.DS_Store
+
