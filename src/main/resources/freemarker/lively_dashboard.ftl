@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>This is the lively dashboard</title>
+    <title>Lively</title>
     <style type="text/css">
     <#include "styles.css">
     </style>
 </head>
-<body>
+<body id="front-page">
 
-<h2>Live<span class="slogan"> adventurous </span>ly</h2>
+<div class="brand">
+<h2 class="white text-center">Live<span class="blue small-text text-center dosis"> adventurous </span>ly</h2>
+</div>
 
-<div class="center">
-	<form><input type="button" class="button login" onClick="parent.location='/login'" value="Login"></input></form>
-	<form><input type="button" class="button signup error" onClick="parent.location='/signup'" value="Sign Up"></input></form>
+<div class="center-div text-center">
+	<form><input type="button" class="login button" onClick="parent.location='/login'" value="Login"></input></form>
+	<form><input type="button" class="signup button primary" onClick="parent.location='/signup'" value="Sign Up"></input></form>
 </div>
 
 </body>

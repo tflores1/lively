@@ -6,14 +6,21 @@
     <#include "styles.css">
     </style>
 </head>
-<body>
+<body id="front-page">
 
-<h2>Live<span class="slogan"> adventurous </span>ly</h2>
+<div class="brand">
+<h2 class="white text-center">Live<span class="blue dosis small-text text-center"> adventurous </span>ly</h2>
+</div>
 
-<a href="#x" class="overlay" id="login_form"></a> 
+<div class="center-div text-center">
+	<form><input type="button" class="login button" onClick="parent.location='/login'" value="Login"></input></form>
+	<form><input type="button" class="signup button primary cookie" onClick="parent.location='/signup'" value="Sign Up"></input></form>
+</div>
+
+<a href="/" class="overlay" id="login_form"></a> 
 <div class="popup">
 	<div class="text-center">
-		<span class="yellow">Need to Create an account?</span>
+		<span class="yellow bold">Need to Create an account?</span>
 		<form style="display:inline-block"><input type="button" class="button secondary small-button" onClick="parent.location='/signup'" value="Sign Up" /></form> 
 	</div>
 	<div><p>Enter your username and password.</div>
@@ -29,7 +36,7 @@
 		</table> 	   
 	</div>
 	<div class="text-center">
-		<input type="submit" class="button submit small-button no-hover" />	 
+		<input type="submit" class="button small-button submit small-text" />	 
 	</div>  
 </form>
 <a class="close" href="#close"></a> 
