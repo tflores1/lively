@@ -42,8 +42,8 @@ public class TempCollection {
 			return false;
 		}
 		
-		String passwordHash = User.createPasswordHash(pass, Integer.toString(random.nextInt()));
-		users.getMap().put(username, passwordHash);
+		//String passwordHash = User.createPasswordHash(pass, Integer.toString(random.nextInt()));
+		//users.getMap().put(username, passwordHash);
 		
 		System.out.println(users.getMap().get(username));
 		return true;
@@ -55,9 +55,9 @@ public class TempCollection {
 	 * @param username
 	 */
 	public void addSession(String username) {
-		String sessionId = Session.newSessionId(username);
-		sessions.getMap().put(username, sessionId);
-		sessions.getMap().put(sessionId, username);
+		//String sessionId = Session.newSessionId(username);
+		//sessions.getMap().put(username, sessionId);
+		//sessions.getMap().put(sessionId, username);
 	}
 	
 	/**
@@ -139,10 +139,10 @@ public class TempCollection {
 				
 		String salt = authPass.split(",")[1];
 		
-		if (!(pass != null && pass.equals(User.createPasswordHash(authPass, salt)))){
+		//if (!(pass != null && pass.equals(User.createPasswordHash(authPass, salt)))){
 			System.out.println("Password does not seem to be a match");
 			return false;
-		} else { return true; }
+		//} else { return true; }
 	}
 	
 }
