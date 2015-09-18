@@ -9,7 +9,7 @@
  	color: black;
  }
  body {
- 	background: white; 	
+ 	background: black; 	
  	font-size: 14px;
  	font-family: 'Dosis', sans-serif;
  }
@@ -17,7 +17,7 @@
  	background: black;
  	background-image: url(http://i60.tinypic.com/vrpz5s.jpg);
  	background-repeat: no-repeat;
- 	background-position: center, center, fixed; 	
+ 	background-position: center, center, absolute; 	
  	-webkit-background-size: cover;  
  	-moz-background-size: cover;  
  	-o-background-size: cover;  
@@ -25,6 +25,21 @@
  	font-family: 'Dosis', sans-serif;
  	font-size: 14px;
  }
+.outer {
+	background: black;
+ 	background-image: url(http://i60.tinypic.com/vrpz5s.jpg);
+ 	background-repeat: no-repeat;
+ 	background-position: center, center, absolute; 	
+ 	height: 600px;	
+	-webkit-background-size: cover;  
+ 	-moz-background-size: cover;  
+ 	-o-background-size: cover;  
+ 	background-size: cover; 	
+}
+.inner {
+	padding-top: 250px;
+	background: inherit;
+}
 h2 {
  	font-family: 'Cookie', cursive;
  	font-size: 5em;
@@ -42,8 +57,8 @@ p {
 	top: 90%;
 }
  .center-div {
- 	width: 30%;
- 	height: 10%;
+ 	width: 40%;
+ 	height: 30%;
  	position: absolute;  
  	margin: auto;  
  	top: 0;  
@@ -52,7 +67,7 @@ p {
  	left: 0;
  }
  .brand {
- 	margin-top: 8%;
+ 	margin-bottom: 10px;
  }
 .button {
 	font-size: 14px;

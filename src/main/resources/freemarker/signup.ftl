@@ -8,7 +8,7 @@
     </style>
   </head>
 
-  <body id="front-page">
+  <body>
   <#include "homepage.html">
   <a href="/" class="overlay" id="login_form"></a> 
 <div class="popup">
@@ -79,18 +79,6 @@
 </form>
 <a class="close" href="#close"></a> 
 </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   

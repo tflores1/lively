@@ -10,12 +10,12 @@
 <body>
 
 <p class="responsive dosis large blue">User Preferences</p>
-<div class="settings"> </div>
+<div class="settings"> 
 
 
 
 
 
-
+</div>
 </body>
 </html>
