@@ -8,19 +8,12 @@
 </head>
 <body id="front-page">
 
-<div class="brand">
-<h2 class="white text-center">Live<span class="blue dosis small-text text-center"> adventurous </span>ly</h2>
-</div>
-
-<div class="center-div text-center">
-	<form><input type="button" class="login button" onClick="parent.location='/login'" value="Login"></input></form>
-	<form><input type="button" class="signup button primary cookie" onClick="parent.location='/signup'" value="Sign Up"></input></form>
-</div>
+<#include "homepage.html">
 
 <a href="/" class="overlay" id="login_form"></a> 
 <div class="popup">
 	<div class="text-center">
-		<span class="yellow bold">Need to Create an account?</span>
+		<span class="blue bold">Need to Create an account?</span>
 		<form style="display:inline-block"><input type="button" class="button secondary small-button" onClick="parent.location='/signup'" value="Sign Up" /></form> 
 	</div>
 	<div><p>Enter your username and password.</div>
@@ -41,5 +34,8 @@
 </form>
 <a class="close" href="#close"></a> 
 </div>
+
+
+
 </body>
 </html>
