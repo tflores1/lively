@@ -12,8 +12,6 @@
 </head>
 
 <body>
-
-
 <!-- New code starts here -->
 	<div id="page">
   		<div id="page-content">
@@ -34,12 +32,13 @@
     		<nav id="left">
       			<ul>
       				<br />
-        			<li class="active"><a href="#">Healt<nos>h</nos></a><span></span></li>
-        			<li><a href="#">Fitnes<nos>s</nos></a><span></span></li>
-        			<li><a href="#">Profil<nos>e</nos></a><span></span></li>
-        			<li><a href="#">Setting<nos>s</nos></a><span></span></li>
+        			<li class="active"><a href="#">Healt<nos class="blue">h</nos></a><span></span></li>
+        			<li><a href="#">Fitnes<nos class="blue">s</nos></a><span></span></li>
+        			<li><a href="#">Profil<nos class="blue">e</nos></a><span></span></li>
+        			<li><a href="#">Setting<nos class="blue">s</nos></a><span></span></li>
       			</ul>
     		</nav>  
+    		<#include "footer.html">
   		</div>
 	</div>
 

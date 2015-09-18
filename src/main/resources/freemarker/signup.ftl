@@ -8,11 +8,14 @@
     </style>
   </head>
 
-  <body>
-    Already a user? <a href="/login">Login</a><p>
-    <h2>Signup</h2>
-    <form method="post">
-      <table>
+  <body id="front-page">
+  <#include "homepage.html">
+  <a href="/" class="overlay" id="login_form"></a> 
+<div class="popup">
+	<div><h2 class="blue text-center">Sign-Up</h2></div>
+	<div>   
+	<form method="post">      
+		<table>
         <tr>
           <td class="label">
             Username
@@ -64,10 +67,33 @@
             
           </td>
         </tr>
-      </table>
-
-      <input type="submit">
-    </form>
+      </table>		   
+	</div>
+	<div class="text-center">
+		<input type="submit" class="button small-button submit small-text" />	 
+	</div>  
+	<div class="text-center">
+		<span class="yellow bold">Already a user? </span>
+		<form style="display:inline-block"><input type="button" class="button secondary small-button" onClick="parent.location='/login'" value="Login" /></form> 
+	</div>
+</form>
+<a class="close" href="#close"></a> 
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   </body>
 
 </html>

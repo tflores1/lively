@@ -43,8 +43,8 @@ public class App {
 
 	
 	Version version = new Version("2.3.23");
-	private final DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(
-			version);
+	//private final DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(
+	//		version);
 	private final Configuration cfg;
 	/* replace tempCollection with User object and Session object */
 	private final User user;
@@ -116,7 +116,7 @@ public class App {
 				// load the data for the dashboard
 				// this will be the various api interfaces for each user
 				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map, (ObjectWrapper) builder);
+				SimpleHash root = new SimpleHash(map);
 
 				if (username != null) {
 					root.put("username", username);
@@ -181,7 +181,7 @@ public class App {
 					Writer writer) throws IOException, TemplateException {
 
 				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map, (ObjectWrapper) builder);
+				SimpleHash root = new SimpleHash(map);
 
 				// initialize values for the form.
 				root.put("username", "");
@@ -223,8 +223,7 @@ public class App {
 					}
 				else {
 					Map<String, String> map = new HashMap<String, String>();
-					SimpleHash root = new SimpleHash(map,
-							(ObjectWrapper) builder);
+					SimpleHash root = new SimpleHash(map);
 					
 					root.put("username", username);
 
@@ -239,8 +238,7 @@ public class App {
 			protected void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
 				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map,
-						(ObjectWrapper) builder);
+				SimpleHash root = new SimpleHash(map);
 
 				root.put("username", "");
 				root.put("login_error", "");
@@ -284,8 +282,7 @@ public class App {
 					}
 				} else {
 					Map<String, String> map = new HashMap<String, String>();
-					SimpleHash root = new SimpleHash(map,
-							(ObjectWrapper) builder);
+					SimpleHash root = new SimpleHash(map);
 
 					root.put("username",
 							StringEscapeUtils.escapeHtml4(username));
@@ -329,8 +326,7 @@ public class App {
 			protected void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
 				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map,
-						(ObjectWrapper) builder);
+				SimpleHash root = new SimpleHash(map);
 
 				root.put("error", "System has encountered an error.");
 				template.process(root, writer);

@@ -14,8 +14,9 @@
  	font-family: 'Dosis', sans-serif;
  }
  #front-page {
- 	background-image: url(http://i60.tinypic.com/vrpz5s.jpg); 	
- 	background-repeat: no-repeat; 	
+ 	background: black;
+ 	background-image: url(http://i60.tinypic.com/vrpz5s.jpg);
+ 	background-repeat: no-repeat;
  	background-position: center, center, fixed; 	
  	-webkit-background-size: cover;  
  	-moz-background-size: cover;  
@@ -32,7 +33,13 @@ h2 {
 	text-decoration: none;
 }
 p {
-	padding: 20px;
+	padding: 22px;
+}
+.responsive {
+	left: 0;
+}
+.footer {
+	top: 90%;
 }
  .center-div {
  	width: 30%;
@@ -368,7 +375,7 @@ div.sidebar {
 }
 .sidebar li nos {
 	letter-spacing: 0;
-	color: white;
+	color: rgb(29,41,57);
 	font-size: 18px;
 }
 .sidebar li.active nos{

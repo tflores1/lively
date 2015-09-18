@@ -27,6 +27,7 @@ $( document ).ready(function() {
 		  $(".logo").css("left","-200px");
 		  $(".sidebar").css("left","-235px");
 		  $(".small").html("&raquo");
+		  $("#page-content").css("left","0px");
 		  $("#profilepic").css("margin-right","10px");
 		  $("#name i").hide();
 		  $("#name").css("color","white");
