@@ -43,16 +43,17 @@ import com.mongodb.MongoClientURI;
  */
 public class App {
 
-	
 	Version version = new Version("2.3.23");
-	//private final DefaultObjectWrapperBuilder builder = new DefaultObjectWrapperBuilder(
-	//		version);
+	// private final DefaultObjectWrapperBuilder builder = new
+	// DefaultObjectWrapperBuilder(
+	// version);
 	private final Configuration cfg;
 	/* replace tempCollection with User object and Session object */
 	private final User user;
 	private final Session session;
 	private final Settings settings;
-	//private TempCollection collection = new TempCollection();
+
+	// private TempCollection collection = new TempCollection();
 
 	public static void main(String[] args) throws IOException {
 		new App("mongodb://141.112.17.80");
@@ -63,7 +64,7 @@ public class App {
 		final MongoClient appClient = new MongoClient(new MongoClientURI(
 				mongoURI));
 		final DB database = appClient.getDB("lively");
-		//collection.getCollection();
+		// collection.getCollection();
 
 		user = new User(database);
 		session = new Session(database);
@@ -113,9 +114,10 @@ public class App {
 			@Override
 			public void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
-				 String username = session.findUserNameBySessionId(getSessionCookie(request));
-				//String username = collection
-				//		.getUserBySessionId(getSessionCookie(request));
+				String username = session
+						.findUserNameBySessionId(getSessionCookie(request));
+				// String username = collection
+				// .getUserBySessionId(getSessionCookie(request));
 
 				// load the data for the dashboard
 				// this will be the various api interfaces for each user
@@ -154,7 +156,7 @@ public class App {
 					System.out.println("Signup: Creating user with: "
 							+ username + " " + password);
 					if (!user.addUser(username, password, email)) {
-					//if (!collection.validateNewUser(username)) {
+						// if (!collection.validateNewUser(username)) {
 						// duplicate user
 						root.put("username_error",
 								"Oops, that username is taken!");
@@ -163,7 +165,7 @@ public class App {
 						// good user, let's start a session
 						// collection.addSession(username);
 						String sessionID = session.startSession(username);
-						//String sessionID = collection.getSessionId(username);
+						// String sessionID = collection.getSessionId(username);
 
 						response.raw().addCookie(
 								new Cookie("session", sessionID));
@@ -214,7 +216,7 @@ public class App {
 				// System.out.println(cookie);
 
 				String username = session.findUserNameBySessionId(cookie);
-				//String username = collection.getUserBySessionId(cookie);
+				// String username = collection.getUserBySessionId(cookie);
 				// String username = "Guest";
 				// System.out.println(username);
 
@@ -224,11 +226,10 @@ public class App {
 					response.redirect("/signup");
 					// username = "Guest";
 
-					}
-				else {
+				} else {
 					Map<String, String> map = new HashMap<String, String>();
 					SimpleHash root = new SimpleHash(map);
-					
+
 					root.put("username", username);
 
 					template.process(root, writer);
@@ -267,13 +268,14 @@ public class App {
 
 				DBObject thisUser = user.validateLogin(username, password);
 
-				//if (collection.validateLogin(username, password)) {
+				// if (collection.validateLogin(username, password)) {
 				if (thisUser != null) {
-					
+
 					// valid user, let's log them in
-					//collection.addSession(username);
-					String sessionID = session.startSession(thisUser.get("_id").toString());
-					//String sessionId = collection.getSessionId(username);
+					// collection.addSession(username);
+					String sessionID = session.startSession(thisUser.get("_id")
+							.toString());
+					// String sessionId = collection.getSessionId(username);
 
 					if (sessionID == null) {
 						response.redirect("/internal_error");
@@ -311,8 +313,8 @@ public class App {
 				} else {
 					// removes session from collection
 					session.endSession(sessionID);
-					//collection.endSession(sessionID);
-					
+					// collection.endSession(sessionID);
+
 					// delete the cookie
 					Cookie c = getSessionCookieActual(request);
 					c.setMaxAge(0);
@@ -336,22 +338,57 @@ public class App {
 				template.process(root, writer);
 			}
 		});
-		
-		//used to fill fields in the settings page
-		get(new FreemarkerBasedRoute("/settings", "settings.ftl"){
+
+		// used to fill fields in the settings page
+		get(new FreemarkerBasedRoute("/settings", "settings.ftl") {
 			@Override
 			protected void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
-				
-				DBObject user = settings.findOne(new BasicDBObject("_id", username));
-				
-				
-				
-				
+
+				String sessionID = getSessionCookie(request);
+				String username = session.findUserNameBySessionId(sessionID);
+
+				String email = user.getEmail(username);
+
+				Map<String, String> map = new HashMap<String, String>();
+				SimpleHash root = new SimpleHash(map);
+
+				if (email == null) {
+					email = "";
+					root.put("email", email);
+					template.process(root, writer);
+				} else {
+					root.put("email", email);
+					root.put("username", username);
+					template.process(root, writer);
+				}
 			}
-			
-			
-			
+
+		});
+
+		// update the password for the user account
+		post(new FreemarkerBasedRoute("/settings", "settings.ftl") {
+			@Override
+			protected void doHandle(Request request, Response response,
+					Writer writer) throws IOException, TemplateException {
+				Map<String, String> map = new HashMap<String, String>();
+				SimpleHash root = new SimpleHash(map);
+
+				String sessionID = getSessionCookie(request);
+				String username = session.findUserNameBySessionId(sessionID);
+
+				String newPass = request.queryParams("new_password");
+
+				if (!user.updatePassword(username, newPass)) {
+					root.put("error", "Something went wrong, try again later!");
+					template.process(root, writer);
+				} else {
+
+					root.put("password_success",
+							"Thanks! Your password has now been updated!");
+					template.process(root, writer);
+				}
+			}
 		});
 	}
 
