@@ -11,6 +11,7 @@ import freemarker.template.Version;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.lively.app.auth.Session;
 import org.lively.app.auth.User;
+import org.lively.app.data.Settings;
 import org.lively.app.datatypes.TempCollection;
 
 import spark.Request;
@@ -30,6 +31,7 @@ import static spark.Spark.get;
 import static spark.Spark.post;
 import static spark.Route.*;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
 import com.mongodb.MongoClient;
@@ -49,6 +51,7 @@ public class App {
 	/* replace tempCollection with User object and Session object */
 	private final User user;
 	private final Session session;
+	private final Settings settings;
 	//private TempCollection collection = new TempCollection();
 
 	public static void main(String[] args) throws IOException {
@@ -64,6 +67,7 @@ public class App {
 
 		user = new User(database);
 		session = new Session(database);
+		settings = new Settings(database);
 
 		cfg = createFreemarkerConfiguration();
 		initializeRoutes();
@@ -331,6 +335,23 @@ public class App {
 				root.put("error", "System has encountered an error.");
 				template.process(root, writer);
 			}
+		});
+		
+		//used to fill fields in the settings page
+		get(new FreemarkerBasedRoute("/settings", "settings.ftl"){
+			@Override
+			protected void doHandle(Request request, Response response,
+					Writer writer) throws IOException, TemplateException {
+				
+				DBObject user = settings.findOne(new BasicDBObject("_id", username));
+				
+				
+				
+				
+			}
+			
+			
+			
 		});
 	}
 
