@@ -15,7 +15,7 @@
 <!-- New code starts here -->
 	<div id="page">
   		<div id="page-content">
-  			<#include "settings.ftl">
+  			
   		</div>
   		<div class="top">
     		<div>
@@ -23,6 +23,7 @@
       			<div class="content">
         			<div class="user">
          				<span id="name"><a href="#"> Welcome, <span>${username}</span></a></span>
+						<#include "footer.html">
           				<div id="profilepic"></div> 
         			</div>
       			</div>
@@ -35,10 +36,10 @@
         			<li class="active"><a href="#">Healt<nos class="blue">h</nos></a><span></span></li>
         			<li><a href="#">Fitnes<nos class="blue">s</nos></a><span></span></li>
         			<li><a href="#">Profil<nos class="blue">e</nos></a><span></span></li>
-        			<li><a href="#">Setting<nos class="blue">s</nos></a><span></span></li>
+        			<li><a href="/settings">Setting<nos class="blue">s</nos></a><span></span></li>
       			</ul>
     		</nav>  
-    		<#include "footer.html">
+    		
   		</div>
 	</div>
 

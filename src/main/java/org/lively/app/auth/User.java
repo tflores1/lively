@@ -68,15 +68,18 @@ public class User {
         return user;
     }
     
-    public DBObject updatePassword(DBObject user, String username, String newPassword) {
-		String newPassHash = makePasswordHash(newPassword, Integer.toString(random.nextInt()));
+    public boolean updatePassword(String username, String newPassword) {
+		DBObject user;
+		user = usersCollection.findOne(new BasicDBObject("_id", username));
+		
+    	String newPassHash = makePasswordHash(newPassword, Integer.toString(random.nextInt()));
 		
 		BasicDBObject userQuery = new BasicDBObject().append("_id", username);
 		
 		BasicDBObject setPass = new BasicDBObject();
 		setPass.append("$set", new BasicDBObject().append("password", newPassHash));
 		
-		userSettings.update(userQuery, setPass);
+		usersCollection.update(userQuery, setPass);
 		
 		String hashedAndSalted = user.get("password").toString();
 
@@ -88,12 +91,14 @@ public class User {
         } else { return true; }
 	}
 	
-	public String getEmail(DBObject user, String username) {
+	public String getEmail(String username) {
+		DBObject user;
+		user = usersCollection.findOne(new BasicDBObject("_id", username));
+		
 		String email = user.get("email").toString();
+		
 		return email;
 	}
-    
-
 
     @SuppressWarnings("restriction")
 	private String makePasswordHash(String password, String salt) {
