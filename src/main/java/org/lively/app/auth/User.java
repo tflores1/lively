@@ -19,8 +19,8 @@ public class User {
 	private final DBCollection usersCollection;
     private Random random = new SecureRandom();
 
-    public User(final DB blogDatabase) {
-        usersCollection = blogDatabase.getCollection("users");
+    public User(final DB livelyDatabase) {
+        usersCollection = livelyDatabase.getCollection("users");
     }
 
     // validates that username is unique and insert into db
@@ -67,6 +67,32 @@ public class User {
 
         return user;
     }
+    
+    public DBObject updatePassword(DBObject user, String username, String newPassword) {
+		String newPassHash = makePasswordHash(newPassword, Integer.toString(random.nextInt()));
+		
+		BasicDBObject userQuery = new BasicDBObject().append("_id", username);
+		
+		BasicDBObject setPass = new BasicDBObject();
+		setPass.append("$set", new BasicDBObject().append("password", newPassHash));
+		
+		userSettings.update(userQuery, setPass);
+		
+		String hashedAndSalted = user.get("password").toString();
+
+        String salt = hashedAndSalted.split(",")[1];
+
+        if (!hashedAndSalted.equals(makePasswordHash(newPassword, salt))) {
+            System.out.println("We did not update correctly");
+            return false;
+        } else { return true; }
+	}
+	
+	public String getEmail(DBObject user, String username) {
+		String email = user.get("email").toString();
+		return email;
+	}
+    
 
 
     @SuppressWarnings("restriction")
