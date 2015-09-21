@@ -465,6 +465,12 @@ div.sidebar {
 	-webkit-box-shadow: 0 1px 0 #FFF inset; -moz-box-shadow: 0 1px 0 #FFF inset; 
 	box-shadow: 0 1px 0 #FFF inset;
 }
+.tabs:active {
+	background: white;
+}
+.tabs:active .tabs-content {
+	display: block;
+}
 .tabs a {
 	display: block; 
 	float: left; 

@@ -35,5 +35,13 @@ $( document ).ready(function() {
 		  $("#name").css("width","calc(100% - 55px)")
 		  $("#home-nav li").css({"float":0,"width":"100%"})
 		}
-	})	
+	})
+	$(".tabs a").click(function(){
+		$(".tabs a").removeClass("active");
+		$(this).addClass("active");
+		
+		if($("#account").hasClass("active")){
+			
+		}
+	})
 });
