@@ -287,53 +287,75 @@ p {
 	position: relative;
 	background: white;
 }
+div.wrapper {
+	width: 250px;
+	height: 190px;
+	color: white;
+	
+}
 div.top {
 	top: 0px;
 	right: 0px;
 	left: 0px;
 	height: 75px;
 	background: white;
+	color: white;
 }
-.top div.content {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	left: 250px;
-	height: 75px;
-	width: calc(100% - 250px);
+.sidebar div.content {
+	top: 10px;
+	left: 0px;
+	width: 250px;
+	height: 60px;
+	font-size: 14px;
+	z-index: 99999;
+	text-align: center;
+	display: block;
+	color: white;
 }
-.top .user {
+.sidebar .user {
+	text-align: center;
+	left: 0px;
+	width: 250px;
+	z-index: 99999;
 	position: relative;
-	top: 0px;
-	right: 0px;
-	bottom: 0px;
-	width: 300px;
-	float: right;
+	float: left;
+	padding: 25px 0px;
+	color: white;
+	background: rgb(29,41,57);
 }
-.top #name {
-	position: absolute;
+.sidebar #name {
 	height: 75px;
-	width: calc(100% - 95px);
 	font-weight: 600;
 	-webkit-text-stroke: 0.20px;
-	padding: 15px 0 0 0;
-	text-align: right;
+	padding: 0;
+	text-align: left;
+	color: white;
 }
 #name span {
 	font-weight: 400;
+	color: white;
 }
 #name:hover span {
 	color: rgb(217,220,105);
 }
-.top #profilepic {
+.pic-wrapper {
+	margin: 5px 0;
+	text-align: center;
+	margin: auto;
+	width: 250px;
+	height: 40px;
+	background: rgb(29,41,57);
+	z-index: 99999;
+	padding: 15px 0;
+}
+.sidebar #profilepic {
 	background: url(http://placehold.it/40.png);
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
-	height: 40px;
-	width: 40px;
-	margin: 15px 50px 0 0;
-	float: right;
+	height: 45px;
+	width: 45px;
+	margin: auto;
+
 }
 div.logo {
 	font-weight: 300;
