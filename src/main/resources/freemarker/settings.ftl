@@ -18,11 +18,7 @@
   			<p class="responsive dosis large blue">User Preferences</p>
 <div class="settings"> 
 
-<div id="tabs">
-	<nav class="tabs">
-		<a href="#" class="active">Account</a>
-		<section class="active tabs-content">
-			<p>Username: ${username}</p>
+<p>Username: ${username}</p>
 			<p>Email: ${email}</p>
 
 			<form method="post">
@@ -30,21 +26,6 @@
 				<input type="password" name="new_password" value="" />
 				<input type="password" name="verify" value="" />
 			</form>
-		</section>
-		<a href="#">Devices</a>
-		<section class="tabs-content">
-			This will list my devices.
-		</section>
-		<a href="#">Alerts</a>
-		<section class="tabs-content">
-			This will let you configure different alerts.
-		</section>
-		<a href="#">Record</a>
-		<section class="tabs-content">
-			Information that you can store in your profile?
-		</section>
-	</nav>
-</div>
 
 </div>
   			
