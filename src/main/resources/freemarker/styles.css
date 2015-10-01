@@ -47,7 +47,7 @@ h2 {
 	text-decoration: none;
 }
 p {
-	padding: 22px;
+	
 }
 .responsive {
 	left: 0;
@@ -199,6 +199,18 @@ p {
 .bold {
 	font-weight: 300;
 }
+hr.shadow {
+	height: 5px;
+	border: 0;
+	box-shadow: 0 5px 5px -5px #8c8b8b inset;
+	width: 60%;
+	float: left;
+	margin-left: 15px;
+	margin-top: 25px;
+	margin-right: 40%;
+	display: block;
+}
+
 
 /** modal popup css **/
 .overlay {    
@@ -255,16 +267,17 @@ p {
     opacity: 1;    
     visibility: visible;
 }
-.popup p, .popup div {    
+.popup p, .popup div, .break div {    
 	margin-bottom: 10px;
 }
-.popup .label {    
+.popup .label, .break .label {    
 	display: inline-block;    
 	text-align: left;    
 	width: 120px;
 	font-size: 12px;
 }
-.popup input[type="text"], .popup input[type="password"] {    
+.popup input[type="text"], .popup input[type="password"], 
+.break input[type="password"] {    
 	border: 1px solid;    
 	border-color: #999 #ccc #ccc;    
 	margin: 0;    
@@ -276,7 +289,8 @@ p {
 	-o-border-radius: 2px;    
 	border-radius: 2px;
 }
-.popup input[type="text"]:hover, .popup input[type="password"]:hover {    
+.popup input[type="text"]:hover, .popup input[type="password"]:hover,
+.break input[type="password"]:hover {    
 	border-color: #555 #888 #888;
 }
 
@@ -305,7 +319,7 @@ div.top {
 	top: 10px;
 	left: 0px;
 	width: 250px;
-	height: 60px;
+	height: 40px;
 	font-size: 14px;
 	z-index: 99999;
 	text-align: center;
@@ -319,12 +333,12 @@ div.top {
 	z-index: 99999;
 	position: relative;
 	float: left;
-	padding: 25px 0px;
+	padding: 15px 0px;
 	color: white;
 	background: rgb(29,41,57);
 }
 .sidebar #name {
-	height: 75px;
+	height: 60px;
 	font-weight: 600;
 	-webkit-text-stroke: 0.20px;
 	padding: 0;
@@ -339,11 +353,11 @@ div.top {
 	color: rgb(217,220,105);
 }
 .pic-wrapper {
-	margin: 5px 0;
+	margin: 0px 0;
 	text-align: center;
 	margin: auto;
 	width: 250px;
-	height: 40px;
+	height: 70px;
 	background: rgb(29,41,57);
 	z-index: 99999;
 	padding: 15px 0;
@@ -458,6 +472,8 @@ div.sidebar {
 	right: 0px;
 	transition: left ease-in-out .2s;
 	background: white;
+	
+	padding-left: 50px;
 }
 
 /** Styles for the settings page **/
@@ -520,4 +536,23 @@ div.sidebar {
 }
 .tabs-content:hover {
 	display: block;
+}
+
+/** Settings forum **/
+div.settings {
+	display: block;
+	margin-bottom: 10px;
+}
+
+div.break {
+	display: block;
+	min-height: 100%;
+}
+div.form {
+	height: 140px;
+}
+
+.break table {
+	margin-top: 30px;
+	float: left;
 }
