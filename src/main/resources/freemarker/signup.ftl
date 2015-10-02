@@ -80,8 +80,5 @@
 <a class="close" href="#close"></a> 
 </div>
   
-  
-  
   </body>
-
 </html>
