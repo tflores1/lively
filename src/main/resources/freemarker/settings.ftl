@@ -13,51 +13,51 @@
 
 <body>
 <!-- New code starts here -->
-	<div id="page">
-  		<div id="page-content">
-  			<p class="responsive dosis large blue">User Preferences</p>
-<div class="settings"> 
+	
+  		<div id="page-content" class="bg jagged-border">
+  			<div id="inner-content">
+  			<#include "settings.html">
+			</div>
+  		</div>
 
-<p>Username: ${username}</p>
-			<p>Email: ${email}</p>
-
-			<form method="post">
-				<input type="password" name="password" value="" />
-				<input type="password" name="new_password" value="" />
-				<input type="password" name="verify" value="" />
-			</form>
-
+  	<div id="page">
+		<div class="top">
+	<div class="logo cookie large">
+		Lively<span class="small">&laquo;</span>
+	</div>
 </div>
-  			
-  		</div>
-  		<div class="top">
-    		<div>
-      			<div class="logo cookie large">Lively<span class="small">&laquo;</span></div>
-      			<div class="content">
-        			<div class="user">
-         				<span id="name"><a href="#"> Welcome, <span>${username}</span></a></span>
-						<#include "footer.html">
-          				<div id="profilepic"></div> 
-        			</div>
-      			</div>
-    		</div>
- 		</div>
-  		<div class="sidebar dosis medium">
-    		<nav id="left">
-      			<ul>
-      				<br />
-        			<li><a href="#">Healt<nos class="blue">h</nos></a><span></span></li>
-        			<li><a href="#">Fitnes<nos class="blue">s</nos></a><span></span></li>
-        			<li><a href="#">Profil<nos class="blue">e</nos></a><span></span></li>
-        			<li class="active"><a href="/settings">Setting<nos class="blue">s</nos></a><span></span></li>
-      			</ul>
-    		</nav>  
-    		
-  		</div>
+
+
+<div class="heading">
+	<p class="header responsive dosis large blue">Welcome!</p>
+</div>
+
+
+<div class="sidebar dosis medium blurred-bg tinted">
+	<div class="content">
+		<div class="user">
+			<span id="name" class="dosis"><a href="/welcome" class="white">
+					Welcome, <span>${username}</span>
+			</a></span>
+		</div>
+
+	</div>
+	<div class="pic-wrapper">
+		<div id="profilepic"></div>
 	</div>
 
-<!-- Ends -->
+	<nav id="left">
+		<ul>
+			<br />
+			<li><a href="#">Healt<nos class="blue">h</nos></a><span></span></li>
+			<li><a href="#">Fitnes<nos class="blue">s</nos></a><span></span></li>
+			<li><a href="#">Profil<nos class="blue">e</nos></a><span></span></li>
+			<li class="active"><a href="/settings">Setting<nos class="blue">s</nos></a><span></span></li>
+		</ul>
+	</nav>
 
+</div>
+	</div>
 
   </body>
 </html>
