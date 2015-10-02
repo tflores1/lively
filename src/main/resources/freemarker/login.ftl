@@ -6,7 +6,7 @@
     <#include "styles.css">
     </style>
 </head>
-<body id="front-page">
+<body>
 
 <#include "homepage.html">
 
@@ -34,8 +34,6 @@
 </form>
 <a class="close" href="#close"></a> 
 </div>
-
-
 
 </body>
 </html>

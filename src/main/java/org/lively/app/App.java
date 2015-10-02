@@ -344,15 +344,24 @@ public class App {
 			@Override
 			protected void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
-
+				
+				Map<String, String> map = new HashMap<String, String>();
+				SimpleHash root = new SimpleHash(map);
+				
+				// initialize values for the form.
+				root.put("username", "");
+				root.put("password", "");
+				root.put("email", "");
+				root.put("password_error", "");
+				root.put("password_success", "");
+				root.put("verify_error", "");
+				root.put("empty_field", "");
+				
 				String sessionID = getSessionCookie(request);
 				String username = session.findUserNameBySessionId(sessionID);
 
 				String email = user.getEmail(username);
-
-				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map);
-
+				
 				if (email == null) {
 					email = "";
 					root.put("email", email);
@@ -376,20 +385,71 @@ public class App {
 
 				String sessionID = getSessionCookie(request);
 				String username = session.findUserNameBySessionId(sessionID);
-
+				String email = user.getEmail(username);
+				System.out.println(username);
+				
+				String oldPass = request.queryParams("password");
 				String newPass = request.queryParams("new_password");
-
-				if (!user.updatePassword(username, newPass)) {
-					root.put("error", "Something went wrong, try again later!");
+				String verify = request.queryParams("verify_password");
+				
+				if(oldPass.isEmpty() || newPass.isEmpty() || verify.isEmpty()){
+					root.put("username", username);
+					root.put("email", email);
+					root.put("password", "");
+					root.put("new_password", "");
+					root.put("verify_password", "");
+					root.put("empty_field", "you must fill in all fields.");
+					root.put("password_error", "");
+					root.put("password_success", "");
+					root.put("verify_error", "");
 					template.process(root, writer);
-				} else {
-
-					root.put("password_success",
-							"Thanks! Your password has now been updated!");
+				}
+				
+				if (!newPass.equals(verify)) {
+					root.put("username", username);
+					root.put("email", email);
+					root.put("password", "");
+					root.put("new_password", "");
+					root.put("verify_password", "");
+					root.put("verify_error", "password must match");
+					root.put("password_error", "");
+					root.put("password_success", "");
+					root.put("empty_field", "");
 					template.process(root, writer);
+				}
+				
+				DBObject thisUser = user.validateLogin(username, oldPass);
+				boolean update = user.updatePassword(username, newPass);
+				
+				if (thisUser != null){
+					if (!update) {
+						root.put("username", username);
+						root.put("email", email);
+						root.put("password", "");
+						root.put("new_password", "");
+						root.put("verify_password", "");
+						root.put("empty_field", "Something went wrong, try again later!");
+						root.put("password_error", "");
+						root.put("password_success", "");
+						root.put("verify_error", "");
+						template.process(root, writer);
+					} else {
+						root.put("username", username);
+						root.put("email", email);
+						root.put("password", "");
+						root.put("new_password", "");
+						root.put("verify_password", "");
+						root.put("password_success",
+								"Thanks! Your password has now been updated!");
+						root.put("password_error", "");
+						root.put("verify_error", "");
+						root.put("empty_field", "");
+						template.process(root, writer);
+					}
 				}
 			}
 		});
+		
 	}
 
 	// helps get session cookie as string

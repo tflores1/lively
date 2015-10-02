@@ -86,7 +86,7 @@ public class User {
         String salt = hashedAndSalted.split(",")[1];
 
         if (!hashedAndSalted.equals(makePasswordHash(newPassword, salt))) {
-            System.out.println("We did not update correctly");
+            System.out.println("Oops, we did not update correctly");
             return false;
         } else { return true; }
 	}
