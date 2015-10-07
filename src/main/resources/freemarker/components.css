@@ -1,0 +1,140 @@
+.ovalshadow {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  -moz-transition: bottom 0.4s;
+  -o-transition: bottom 0.4s;
+  -webkit-transition: bottom 0.4s;
+  transition: bottom 0.4s;
+}
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dropdown ul, .dropdown-menu {
+    background: rgb(29, 41, 57);
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0;
+    text-align: center;
+}
+ul.dropdown-menu li a {
+    color: white;
+}
+
+/* sidebar navigation */
+
+@media screen and (max-width: 768px) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+
+  .row-offcanvas-left
+  .left-chart {
+    left: -33%;
+  }
+
+  .row-offcanvas-left.active {
+    left: 33%;
+  }
+
+  .left-chart {
+    position: absolute;
+    top: 0;
+    width: 33%;
+  }
+}
+/* USERNAME, LOGOUT, DROPDOWN ARROWS */
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-header>a {
+    text-decoration: none;
+}
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-nav>li>a.disabled:hover {
+       color: rgb(29, 41, 57);
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: rgb(217, 220, 105);
+}
+
+/* MAIN BODY PROFILE */
+.body-profile {
+    font-size: 5em;
+}
+.body-profile-text {
+    background: linear-gradient(white, rgb(217, 220, 105));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info {
+    font-size: .15em;
+    position: absolute;
+    display: inline;
+}
+.info-content {
+    font-size: .75em;
+    display: inline;
+}
+#info-1x {
+    top: 50px;
+    left: 410px;
+}
+#info-2x {
+    top: 175px;
+    left: 390px;
+}
+#rectangle {
+    display: inline-block;
+    height: 2px;
+    width: 100px;
+    z-index: 999999;
+    background: rgb(29, 41, 57);
+}
+#rectangle2 {
+    display: inline-block;
+    height: 2px;
+    width: 130px;
+    z-index: 999999;
+    background: rgb(29, 41, 57);
+}
+
+@media screen and (max-width: 768px) {
+    .info-content {
+        visibility: hidden;
+    }
+    #rectangle {
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+    }
+    #rectangle2 {
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
