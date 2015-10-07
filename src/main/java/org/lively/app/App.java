@@ -348,19 +348,27 @@ public class App {
 				Map<String, String> map = new HashMap<String, String>();
 				SimpleHash root = new SimpleHash(map);
 				
-				// initialize values for the form.
-				root.put("username", "");
-				root.put("password", "");
-				root.put("email", "");
-				root.put("password_error", "");
-				root.put("password_success", "");
-				root.put("verify_error", "");
-				root.put("empty_field", "");
-				
 				String sessionID = getSessionCookie(request);
 				String username = session.findUserNameBySessionId(sessionID);
 
 				String email = user.getEmail(username);
+				
+				// initialize values for the form and page values.
+				//username and email display
+				root.put("username", "");
+				root.put("email", "");
+				
+				//update password form
+				root.put("password", "");
+				root.put("password_error", "");
+				
+				root.put("new_password", "");
+				root.put("same_password", "");
+				
+				root.put("verify_password", "");
+				root.put("verify_error", "");
+				
+				root.put("update_message", "");
 				
 				if (email == null) {
 					email = "";
@@ -380,72 +388,34 @@ public class App {
 			@Override
 			protected void doHandle(Request request, Response response,
 					Writer writer) throws IOException, TemplateException {
-				Map<String, String> map = new HashMap<String, String>();
-				SimpleHash root = new SimpleHash(map);
-
 				String sessionID = getSessionCookie(request);
 				String username = session.findUserNameBySessionId(sessionID);
 				String email = user.getEmail(username);
 				System.out.println(username);
 				
-				String oldPass = request.queryParams("password");
-				String newPass = request.queryParams("new_password");
+				String oldPassword = request.queryParams("password");
+				String newPassword = request.queryParams("new_password");
 				String verify = request.queryParams("verify_password");
 				
-				if(oldPass.isEmpty() || newPass.isEmpty() || verify.isEmpty()){
-					root.put("username", username);
-					root.put("email", email);
-					root.put("password", "");
-					root.put("new_password", "");
-					root.put("verify_password", "");
-					root.put("empty_field", "you must fill in all fields.");
-					root.put("password_error", "");
-					root.put("password_success", "");
-					root.put("verify_error", "");
-					template.process(root, writer);
-				}
+				HashMap<String, String> root = new HashMap<String, String>();
+				root.put("username", StringEscapeUtils.escapeHtml4(username));
+				root.put("email", StringEscapeUtils.escapeHtml4(email));
 				
-				if (!newPass.equals(verify)) {
-					root.put("username", username);
-					root.put("email", email);
-					root.put("password", "");
-					root.put("new_password", "");
-					root.put("verify_password", "");
-					root.put("verify_error", "password must match");
-					root.put("password_error", "");
-					root.put("password_success", "");
-					root.put("empty_field", "");
-					template.process(root, writer);
-				}
-				
-				DBObject thisUser = user.validateLogin(username, oldPass);
-				boolean update = user.updatePassword(username, newPass);
-				
-				if (thisUser != null){
-					if (!update) {
-						root.put("username", username);
-						root.put("email", email);
-						root.put("password", "");
-						root.put("new_password", "");
-						root.put("verify_password", "");
-						root.put("empty_field", "Something went wrong, try again later!");
-						root.put("password_error", "");
-						root.put("password_success", "");
-						root.put("verify_error", "");
+				if(validateUpdatePass(username, oldPassword, newPassword, verify, root)) {
+					//everything in the form checks out
+					System.out.println("Update Password for " + username + " with password, " + newPassword);
+					if(!user.updatePassword(username, newPassword)){
+						//update not successful
+						root.put("update_message", "Oops, update not successful!");
 						template.process(root, writer);
 					} else {
-						root.put("username", username);
-						root.put("email", email);
-						root.put("password", "");
-						root.put("new_password", "");
-						root.put("verify_password", "");
-						root.put("password_success",
-								"Thanks! Your password has now been updated!");
-						root.put("password_error", "");
-						root.put("verify_error", "");
-						root.put("empty_field", "");
-						template.process(root, writer);
+						//update was successful 
+						root.put("update_message", "Your password has been successfully updates");
 					}
+				} else {
+					//some other weird issue?
+					System.out.println("what happened? check your code");
+					template.process(root, writer);
 				}
 			}
 		});
@@ -476,6 +446,35 @@ public class App {
 			}
 		}
 		return null;
+	}
+	
+	public boolean validateUpdatePass(String username, String password, String newPassword, 
+			String verify, HashMap<String, String> errors) {
+		
+		DBObject thisUser = user.validateLogin(username, password);
+		DBObject samePassword = user.validateLogin(username, newPassword);
+
+		errors.put("password_error", "");
+		errors.put("same_password", "");
+		errors.put("verify_error", "");
+		errors.put("update_message", "");
+		
+		if(thisUser == null) {
+			errors.put("password_error", "incorrect password");
+			return false;
+		}
+		
+		if(samePassword != null) {
+			errors.put("same_password", "make sure your new password is not the same as your old one!");
+			return false;
+		}
+		
+		if(!newPassword.equals(verify)) {
+			errors.put("verify_error", "new passwords must match");
+			return false;
+		}
+		
+		return true;
 	}
 
 	// validates that the registration form has been filled out right and
