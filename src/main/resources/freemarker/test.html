@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lively</title>
+	<!-- add meta info here -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- bootstrap min styles -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" type="text/css">
+    
+    <!-- animate -->
+    
+    
+	<!-- custom stylesheets -->
+	<link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="components.css" type="text/css">
+	
+</head>
+
+<body>
+
+        <nav class="navbar navbar-inverse ovalshadow page-scroll" role="navigation" id="page-top">
+      <div class="container-fluid text-center">
+        <div class="navbar-header text-white text-center">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="text-center text-white cookie page-scroll" href="#page-top">Lively</a>
+        </div>
+          
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <li><i class="fa fa-bell fa-3x red"></i></li>
+              <li><a class="disabled"><i class="fa fa-chevron-down fa-3x"></i></a></li>
+            <li><a href="/logout">logout</a></li>
+          </ul>
+        </div>
+      </div>
+</nav>
+        
+<div class="container-fluid">
+<div class="row row-offcanvas row-offcanvas-left">
+      <div class="col-sm-2">
+        <div class="chart-wrapper left-chart">
+          <div class="chart-stage">
+            <div id="profilepic" class="side-mod"></div>
+            <div class="text-center side-mod"><a href="/dashboard" class="yellow">${username}</a></div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-10 main">
+        
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="chart-wrapper jumbo-panel text-center">
+              <div class="chart-stage body-profile">
+                <i class="fa fa-user fa-5x grey"></i>
+              </div>
+              <div class="chart-notes text-center text-muted">
+                my body
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-2 col-md-4 text-center">
+            <div class="chart-wrapper">
+              <div id="heartrate" class="chart-stage red inner-content pad-top">
+                  <i class="fa fa-heart-o wow bounceIn"></i>
+                  174
+              </div>
+                <div class="chart-notes text-muted">
+                    heart rate
+                </div>
+                <div id="calories" class="chart-stage teal inner-content pad-top">
+                  <i class="fa fa-cutlery wow bounceIn"></i>
+                  1200
+              </div>
+                <div class="chart-notes text-muted">
+                    calories
+                </div>
+            </div>
+          </div>
+        </div>
+          
+          <div class="row pad-top">
+          <div class="col-sm-12 text-center">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                body
+              </div>
+              <div class="chart-stage body-profile">
+                  
+                  
+                  
+                  
+                
+              </div>
+              <div class="chart-notes">
+                this will include the overall picture of health? 
+              </div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="row pad-top">
+          <div class="col-sm-12 text-center">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Cell Title
+              </div>
+              <div class="chart-stage">
+                <img data-src="holder.js/100%x240/white">
+              </div>
+              <div class="chart-notes">
+                Notes about this chart
+              </div>
+            </div>
+          </div>
+        </div>
+          
+        <div class="row pad-top">
+          <div class="col-sm-4 text-center">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Cell Title
+              </div>
+              <div class="chart-stage">
+                <img data-src="holder.js/100%x120/white">
+              </div>
+              <div class="chart-notes">
+                Notes about this chart
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Cell Title
+              </div>
+              <div class="chart-stage">
+                <img data-src="holder.js/100%x120/white">
+              </div>
+              <div class="chart-notes">
+                Notes about this chart
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4 text-center">
+            <div class="chart-wrapper">
+              <div class="chart-title">
+                Cell Title
+              </div>
+              <div class="chart-stage">
+                <img data-src="holder.js/100%x120/white">
+              </div>
+              <div class="chart-notes">
+                Notes about this chart
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="row text-center">
+    <div class="col-sm-12 footer ">
+        <div class="footer-inner-content text-white">copyright 2015</div>
+    
+    
+    
+    </div>
+    </div>
+</div>  
+    
+
+
+
+
+
+
+
+
+
+
+
+	<!-- scripts imported here -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- jQuery additional & wow -->
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/jquery.fittext.js"></script>
+    <script src="js/wow.min.js"></script>
+    
+    <!-- chartist.js -->
+    <script src="Chart.js-master/Chart.js"></script>
+    
+    <script src="script.js"></script>
+
+
+</body>
+</html>

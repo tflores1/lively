@@ -1,0 +1,183 @@
+/**
+ * NEW STYLES FOR BOOTSTRAP
+ */
+@import url(https://fonts.googleapis.com/css?family=Cookie);
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+hr {
+    max-width: 100px;
+    border-color: rgb(189, 195, 199); 
+    border-width: 2px;
+}
+hr.light {
+    border-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(29, 41, 57);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+a:hover,
+a:focus {
+    color: rgb(217, 220, 105);
+}
+nav .container-fluid {
+	margin: 0;
+    padding: 0;
+    background: white;
+}
+.navbar {
+    border: none;
+    margin-bottom: 0px;
+}
+.navbar-header  {
+    min-width: 300px;
+	padding: 12px;
+	font-size: 3em;
+	background: rgb(29, 41, 57);
+}
+.nav {
+	list-style: none; 
+    padding-top: 15px;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    nav .container-fluid {
+        padding: 0px 15px;
+    }
+    .navbar-header {
+        text-align: left;
+    }
+    .navbar-header .navbar-toggle {
+        border-color: white;
+        margin-top: 15px;
+        margin-right: 0px;
+    }
+    .nav {
+        margin: 0 auto;
+        padding: 5px;
+        text-align: center;
+        display: inline;
+    }
+}
+
+/* MAIN PAGE DIV */
+.main {
+    padding-top: 50px;
+}
+
+.pad-top {
+    padding-top: 45px;
+}
+
+.left-chart {
+    margin-left: -15px;
+    padding-left: 20px;
+    padding-top: 10px;
+    border-left: solid 50px rgb(29, 41, 57);
+    font-size: 12px;
+}
+.side-mod {
+    padding-top: 10px;
+    padding-bottom: 25px;
+}
+
+.chart-stage #profilepic {
+	background: url(http://placehold.it/40.png);
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	height: 40px;
+	width: 40px;
+	margin: 10px auto;
+}
+.jumbo-panel {
+    font-size: 1.25em;
+}
+
+.inner-content {
+    font-size: 5em;
+    opacity: .85;
+}
+
+
+
+/* FOOTER STYLES */
+.footer {
+    background: rgb(29, 41, 57);
+    min-height: 65px;
+    margin: 0;
+    padding: 0;
+}
+.footer-inner-content {
+    padding: 15px;
+}
+
+
+
+
+/* BASIC TEXT OPTIONS */
+
+
+.cookie {
+	font-family: 'Cookie', cursive;
+}
+
+.dosis {
+	font-family: 'Dosis', sans-serif;
+}
+.text-white {
+	color: white;
+}
+.teal {
+	color: rgb(28, 175, 154);
+}
+
+.red {
+	color: rgb(238, 79, 75);
+}
+
+.yellow {
+	color: rgb(217, 220, 105);
+}
+
+.blue {
+	color: rgb(29, 41, 57);
+}
+.grey {
+    color: rgb(189, 195, 199);
+}
+
+.text-2x {
+    font-size: 1.5em;
+}
+.padding {
+	padding: 15px;
+}
+.no-gutter > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+.no-padding {
+    padding: 0;
+    margin: 0;
+}
+bg-red {
+    background: rgb(238, 79, 75);
+}
+bg-teal {
+    background: rgb(28, 175, 154);
+}
+bg-blue {
+    background: rgb(29, 41, 57);
+}
+bg-yellow {
+    background: rgb(217, 220, 105);
+
+}
